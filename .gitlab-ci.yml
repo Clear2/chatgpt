@@ -1,0 +1,15 @@
+stages:
+- deploy
+deploy:
+  variables:
+    COMMIT_USER: "clear2<12110331@qq.com>"
+    PROJECT_NAME: "20230303_chatweb"
+    PROJECT_BRANCH: "online"
+  stage: deploy
+  tags:
+    - sales
+  script:
+  - /usr/bin/php /data/www/f2e_php/push.php '' $PROJECT_NAME https://go.163.com/f2e/$PROJECT_NAME/index.html $COMMIT_USER
+  only:
+    - online
+  

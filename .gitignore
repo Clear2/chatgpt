@@ -1,0 +1,21 @@
+# System
+.DS_Store
+
+# IDE or eidtor
+.idea/
+.code/
+.vscode/
+
+# Dependency directories
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# Local project test
+dist
+dist-ssr
+.design/*
+/.gitkeep
+!.design/.gitkeep
+*.local
+*.fla
