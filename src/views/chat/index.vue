@@ -67,7 +67,6 @@ async function onConversation() {
   if (lastContext)
     options = { ...lastContext }
 
-  await fetchChat()
   // addChat(
   //   +uuid,
   //   {
@@ -83,24 +82,23 @@ async function onConversation() {
   // scrollToBottom()
 
   try {
-		// const res = await fetchChatAPIProcess({
-		// 	prompt: message
-		// }) as string
-		// updateChat(
-		// 	+uuid,
-		// 	dataSources.value.length - 1,
-		// 	{
-		// 		dateTime: new Date().toLocaleString(),
-		// 		text: res ?? '',
-		// 		inversion: false,
-		// 		error: false,
-		// 		loading: false,
-		// 		// conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
-		// 		requestOptions: { prompt: message, options: { ...options } },
-		// 	},
-		// )
-		// scrollToBottom()
-		console.log(res)
+		const res = await fetchChatAPIProcess({
+			prompt: message
+		}) as string
+		updateChat(
+			+uuid,
+			dataSources.value.length - 1,
+			{
+				dateTime: new Date().toLocaleString(),
+				text: res ?? '',
+				inversion: false,
+				error: false,
+				loading: false,
+				// conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
+				requestOptions: { prompt: message, options: { ...options } },
+			},
+		)
+		scrollToBottom()
     // await fetchChatAPIProcess<Chat.ConversationResponse>({
     //   prompt: message,
     //   options,
@@ -136,7 +134,6 @@ async function onConversation() {
     //   },
     // })
 
-		console.log('--------_>', message)
   }
   catch (error: any) {
     let errorMessage = error?.message ?? 'Something went wrong, please try again later.'
